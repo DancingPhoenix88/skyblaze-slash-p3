@@ -1,0 +1,249 @@
+{
+  "frames": {
+    "cut-sticker-t1p1": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 241,
+        "y": 2,
+        "w": 237,
+        "h": 332
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 332
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    },
+    "cut-sticker-t1p2": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 719,
+        "y": 532,
+        "w": 237,
+        "h": 279
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 279
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    },
+    "cut-sticker-t2p1": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 35,
+        "w": 237,
+        "h": 213
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 213
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    },
+    "cut-sticker-t2p2": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 480,
+        "y": 373,
+        "w": 237,
+        "h": 438
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 438
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    },
+    "cut-sticker-t3p1": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 241,
+        "y": 336,
+        "w": 237,
+        "h": 475
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 475
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    },
+    "cut-sticker-t3p2": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 719,
+        "y": 363,
+        "w": 237,
+        "h": 167
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 167
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    },
+    "item-a": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 480,
+        "y": 196,
+        "w": 153,
+        "h": 175
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 153,
+        "h": 175
+      },
+      "sourceSize": {
+        "w": 153,
+        "h": 175
+      }
+    },
+    "item-b": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 480,
+        "y": 19,
+        "w": 153,
+        "h": 175
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 153,
+        "h": 175
+      },
+      "sourceSize": {
+        "w": 153,
+        "h": 175
+      }
+    },
+    "item-c": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 635,
+        "y": 186,
+        "w": 153,
+        "h": 175
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 153,
+        "h": 175
+      },
+      "sourceSize": {
+        "w": 153,
+        "h": 175
+      }
+    },
+    "item-d": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 635,
+        "y": 9,
+        "w": 153,
+        "h": 175
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 153,
+        "h": 175
+      },
+      "sourceSize": {
+        "w": 153,
+        "h": 175
+      }
+    },
+    "item-e": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 790,
+        "y": 186,
+        "w": 153,
+        "h": 175
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 153,
+        "h": 175
+      },
+      "sourceSize": {
+        "w": 153,
+        "h": 175
+      }
+    },
+    "sticker": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 250,
+        "w": 237,
+        "h": 561
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 237,
+        "h": 561
+      },
+      "sourceSize": {
+        "w": 237,
+        "h": 561
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "actors.png"
+  }
+}

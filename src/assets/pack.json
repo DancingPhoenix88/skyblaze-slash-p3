@@ -1,0 +1,87 @@
+{
+  "battle": {
+    "files": [
+      {
+        "type": "atlas",
+        "key": "actors",
+        "textureURL": "src/assets/atlas/actors.png",
+        "atlasURL": "src/assets/atlas/actors.json"
+      },
+      {
+        "type": "atlas",
+        "key": "battle_ui",
+        "textureURL": "src/assets/atlas/battle_ui.png",
+        "atlasURL": "src/assets/atlas/battle_ui.json"
+      },
+      {
+        "type": "atlas",
+        "key": "anim_slash_power",
+        "textureURL": "src/assets/atlas/anim_slash_power.png",
+        "atlasURL": "src/assets/atlas/anim_slash_power.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "anim_item_vfx",
+        "url": "src/assets/spritesheets/anim_item_vfx.png",
+        "frameConfig": {
+          "frameWidth": 342,
+          "frameHeight": 342,
+          "margin": 1,
+          "spacing": 2
+        }
+      },
+      {
+        "type": "json",
+        "key": "stage",
+        "url": "src/assets/data/stage.json",
+        "overwrite": false
+      }
+    ]
+  },
+  "result":{
+    "files": [
+      {
+        "type": "image",
+        "key": "blue_star",
+        "url": "src/assets/sprites/result/blue_star.png",
+        "overwrite": false
+      },
+      {
+        "type": "image",
+        "key": "label_complete",
+        "url": "src/assets/sprites/result/label_complete.png",
+        "overwrite": false
+      },
+      {
+        "type": "image",
+        "key": "label_win",
+        "url": "src/assets/sprites/result/label_win.png",
+        "overwrite": false
+      },
+      {
+        "type": "image",
+        "key": "light_beam",
+        "url": "src/assets/sprites/result/light_beam.png",
+        "overwrite": false
+      },
+      {
+        "type": "image",
+        "key": "panel_complete",
+        "url": "src/assets/sprites/result/panel_complete.png",
+        "overwrite": false
+      },
+      {
+        "type": "image",
+        "key": "panel_win",
+        "url": "src/assets/sprites/result/panel_win.png",
+        "overwrite": false
+      },
+      {
+        "type": "image",
+        "key": "yellow_star",
+        "url": "src/assets/sprites/result/yellow_star.png",
+        "overwrite": false
+      }
+    ]
+  }
+}

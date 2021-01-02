@@ -1,0 +1,349 @@
+{
+  "frames": {
+    "clock": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 644,
+        "y": 209,
+        "w": 91,
+        "h": 91
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 91,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 91,
+        "h": 91
+      }
+    },
+    "icon-point": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 87,
+        "y": 26,
+        "w": 61,
+        "h": 56
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 6,
+        "w": 61,
+        "h": 56
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      }
+    },
+    "icon-power-full": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 737,
+        "y": 212,
+        "w": 60,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4,
+        "w": 60,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      }
+    },
+    "icon-power-normal": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 799,
+        "y": 212,
+        "w": 60,
+        "h": 59
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 4,
+        "w": 60,
+        "h": 59
+      },
+      "sourceSize": {
+        "w": 64,
+        "h": 64
+      }
+    },
+    "power-bar-cutin": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 113,
+        "w": 188,
+        "h": 69
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 188,
+        "h": 69
+      },
+      "sourceSize": {
+        "w": 188,
+        "h": 69
+      }
+    },
+    "power-bar-drain-rotate": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 83,
+        "h": 80
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 83,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 83,
+        "h": 83
+      }
+    },
+    "power-bar-full": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 84,
+        "w": 140,
+        "h": 27
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 27
+      }
+    },
+    "power-bar-low": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 192,
+        "y": 155,
+        "w": 140,
+        "h": 27
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 27
+      }
+    },
+    "power-bar-normal": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 737,
+        "y": 273,
+        "w": 140,
+        "h": 27
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 27
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 27
+      }
+    },
+    "red-bottom": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 861,
+        "y": 32,
+        "w": 6,
+        "h": 239
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 6,
+        "h": 295
+      }
+    },
+    "spine-0": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 302,
+        "w": 216,
+        "h": 1202
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 216,
+        "h": 1202
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 1202
+      }
+    },
+    "spine-100": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 220,
+        "y": 302,
+        "w": 216,
+        "h": 1202
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 216,
+        "h": 1202
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 1202
+      }
+    },
+    "spine-25": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 438,
+        "y": 302,
+        "w": 216,
+        "h": 1202
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 216,
+        "h": 1202
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 1202
+      }
+    },
+    "spine-50": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 656,
+        "y": 302,
+        "w": 216,
+        "h": 1202
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 216,
+        "h": 1202
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 1202
+      }
+    },
+    "spine-75": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 874,
+        "y": 302,
+        "w": 216,
+        "h": 1202
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 216,
+        "h": 1202
+      },
+      "sourceSize": {
+        "w": 216,
+        "h": 1202
+      }
+    },
+    "ui-bar": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 184,
+        "w": 640,
+        "h": 116
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 116
+      },
+      "sourceSize": {
+        "w": 640,
+        "h": 116
+      }
+    },
+    "white": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 879,
+        "y": 276,
+        "w": 24,
+        "h": 24
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "battle_ui.png"
+  }
+}
