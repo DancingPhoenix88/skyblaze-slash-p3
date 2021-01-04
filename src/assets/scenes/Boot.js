@@ -1,4 +1,5 @@
 import Home from "./Home";
+import Battle from "./Battle";
 
 class Boot extends Phaser.Scene {
     constructor () {
@@ -11,9 +12,9 @@ class Boot extends Phaser.Scene {
       
     create () {
         this.scene.add( 'Home', Home );
+        this.scene.add( 'Battle', Battle );
 
-
-        this.scene.start( 'Home' );
+        this.scene.transition( { target:'Home', duration:500 } );
     }
 }
 

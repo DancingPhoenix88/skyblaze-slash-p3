@@ -1,3 +1,7 @@
+import VFXStickerCut1 from "../prefabs/VFXStickerCut1";
+import PointManager from "../scripts/game/PointManager";
+import { ActorType, BaseActor } from "../scripts/prefabs/BaseActor";
+
 class Home extends Phaser.Scene {
     constructor () {
         super();
@@ -6,20 +10,21 @@ class Home extends Phaser.Scene {
     create () {
         var _btnStartBg = this.add.sprite( 320.0, 640.0, 'battle_ui', 'white' );
         _btnStartBg.name = 'btnStartBg';
-        _btnStartBg.setScale( 20.0, 40.0 );
-        _btnStartBg.alpha = 0.9;
+        _btnStartBg.setOrigin( 0.5, 0.5 );
+        _btnStartBg.setScale( 20.0, 4.0 );
+        _btnStartBg.setInteractive({ useHandCursor: true })
+            .on( 'pointerdown', this.toBattleState, this );
 
-        var _btnStartText = this.add.text(320.0, 640.0, 'START', {"font":"bold 48px DIN Alternate","fill":"#242fa5","align":"center"});
+        var _btnStartText = this.add.text(320.0, 640.0, 'START', {font:"48px DIN Alternate",fill:"#242fa5",align:"center"});
         _btnStartText.name = 'btnStartText';
+        _btnStartText.setOrigin( 0.5, 0.5 );
 
-        // PointManager.Singleton._reset();
-
-        console.log( 'HOME' );
+        PointManager.Singleton()._reset();
     }
 
     toBattleState () {
-        this.game.data.userLevel = 1;
-        this.scene.start( 'Battle' );
+        this.game.registry.set( 'user_level', 1 );
+        this.scene.transition( { target:'Battle', duration:500 } );
     }
 }
 

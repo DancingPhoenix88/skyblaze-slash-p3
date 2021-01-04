@@ -1,0 +1,4 @@
+NOTES: 
++ group -> container
++ anchor -> origin
++ extended class needs to call preUpdate/update manually <------FUCK

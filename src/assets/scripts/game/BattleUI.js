@@ -1,78 +1,98 @@
-function BattleUI (battleState) {
-    this.state = battleState;
-    //                     0, 1,  2,  3,  4,  5,  6,  7,  8
-    this.spineByHit = [ 0, 25, 25, 25, 50, 50, 75, 75, 100 ];
-    this.init( battleState );
-}
-//-----------------------------------------------------------------------------------------------------------
-BattleUI.prototype = {
-    init : function (battleState) {
-        this.spine = this.state.fSpine;
-        this.redBottom = this.state.fRed_bottom;
-        this.powerBar = this.state.fPowerBar;
-        this.txtTime = this.state.fTxt_time;
-        this.txtPoint = this.state.fTxt_point;
+import PowerBar from "../../prefabs/PowerBar";
+import { GameEvents } from "./GameEvents";
+import Battle from '../../scenes/Battle';
+import { onlyUnique, clamp } from '../common/PhaserExtensions';
+
+class BattleUI {
+    constructor (battleScene) {
+        /** @type Battle */this.scene = battleScene;
+        //                     0, 1,  2,  3,  4,  5,  6,  7,  8
+        this.spineByHit = [ 0, 25, 25, 25, 50, 50, 75, 75, 100 ];
+        this.init();
+    }
+    //-------------------------------------------------------------------------------------------------------
+    init () {
+        /** @type Phaser.GameObjects.Sprite */this.spine     = this.scene.fSpine;
+        /** @type Phaser.GameObjects.Sprite */this.redBottom = this.scene.fRed_bottom;
+        /** @type PowerBar */this.powerBar  = this.scene.fPowerBar;
+        /** @type Phaser.GameObjects.Text */this.txtTime   = this.scene.fTxt_time;
+        /** @type Phaser.GameObjects.Text */this.txtPoint  = this.scene.fTxt_point;
         
         var spineFrames = this.spineByHit.filter( onlyUnique );
         for (var i = 0 ; i < spineFrames.length; ++i) {
-            this.spine.animations.add(
-                'spine-' + spineFrames[i], 
-                ['spine-' + spineFrames[i]], 
-                1, 
-                false, 
-                false 
-            );
+            this.spine.anims.create({
+                key: 'spine-' + spineFrames[i], 
+                frames: [{key:'battle_ui', frame:'spine-' + spineFrames[i]}]
+            });
         }
         
-        this.connectWithTimer( battleState.timer );
-        this.connectWithPointManager( battleState.pointManager );
-        this.connectWithPowerManager( battleState.powerManager );
-        this.connectWithHitCount( battleState );
+        this.connectWithTimer();
+        this.connectWithPointManager( this.scene.pointManager );
+        this.connectWithPowerManager( this.scene.powerManager );
+        this.connectWithHitCount( this.scene );
         this.redBottom.alpha = 0;
-    },
+    }
     //-------------------------------------------------------------------------------------------------------
-    connectWithTimer : function (battleTimer) {
-        battleTimer.events.timeUpdate.add( this.onUpdateTimer, this );
-    },
+    connectWithTimer () {
+        this.scene.events.on( GameEvents.UPDATE_TIME, this.onUpdateTimer, this );
+    }
     //-------------------------------------------------------------------------------------------------------
-    connectWithPointManager : function (battlePointManager) {
+    connectWithPointManager (battlePointManager) {
         this.onUpdatePoint( battlePointManager.getTotalPoint() );
-        battlePointManager.events.update.add( this.onUpdatePoint, this );
-    },
+        this.scene.events.on( GameEvents.UPDATE_POINT, this.onUpdatePoint, this );
+    }
     //-------------------------------------------------------------------------------------------------------
-    connectWithPowerManager : function (battlePowerManager) {
+    connectWithPowerManager (battlePowerManager) {
         this.powerBar.set( battlePowerManager.getPoint() );
-        battlePowerManager.events.update.add( this.powerBar.set, this.powerBar );
-        battlePowerManager.events.activate.add( this.powerBar.onActivate, this.powerBar );
-    },
+        this.scene.events.on( GameEvents.UPDATE_POWER, this.powerBar.set, this.powerBar );
+        this.scene.events.on( GameEvents.ACTIVATE_POWER, this.powerBar.onActivate, this.powerBar );
+    }
     //-------------------------------------------------------------------------------------------------------
-    connectWithHitCount : function (battleState) {
-        this.setSpineByHit( battleState.hitCount );
-        battleState.events.hit.add( this.onUpdateHit, this );
-    },
+    connectWithHitCount (battleScene) {
+        this.setSpineByHit( battleScene.hitCount );
+        this.scene.events.on( GameEvents.HIT, this.onUpdateHit, this );
+
+        this.animFadeIn = this.scene.tweens.create({
+            targets: this.redBottom,
+            alpha: 1,
+            duration: 300,
+            ease: 'Cubic.easeOut'
+        });
+        this.animFadeOut = this.scene.tweens.create({
+            targets: this.redBottom,
+            alpha: 0,
+            duration: 500,
+            ease: 'Linear'
+        });
+    }
     //-------------------------------------------------------------------------------------------------------
-    onUpdateTimer : function (t) {
+    onUpdateTimer (t) {
         this.txtTime.text = '' + t;
         this.txtTime.fill = (t > 5) ? '#FFFFFF' : '#FF0000'; 
-    },
+    }
     //-------------------------------------------------------------------------------------------------------
-    onUpdatePoint : function (p) {
+    onUpdatePoint (p) {
         this.txtPoint.text = '' + p; 
-    },
+    }
     //-------------------------------------------------------------------------------------------------------
-    setSpineByHit : function (hit) {
-        if (hit < 0) hit = 0;
-        else if (hit >= this.spineByHit.length) hit = this.spineByHit.length - 1;
-        this.spine.animations.play( 'spine-' + this.spineByHit[hit] );
-    },
-  //-------------------------------------------------------------------------------------------------------
-    onUpdateHit : function (hit) {
+    setSpineByHit (hit) {
+        hit = hit.clamp(0, this.spineByHit.length - 1);
+        this.spine.play( 'spine-' + this.spineByHit[hit] );
+    }
+    //-------------------------------------------------------------------------------------------------------
+    onUpdateHit (hit) {
         this.setSpineByHit( hit );
         
-        game.tweens.removeAll( this.redBottom ); // cancel running tweens
-        game.add.tween( this.redBottom )
-            .to({alpha:1}, 0.3 * Phaser.Timer.SECOND, Phaser.Easing.Cubic.Out )
-            .to({alpha:0}, 0.5 * Phaser.Timer.SECOND )
-            .start();
-    },
-};
+        // CANNOT re-use timeline ---> re-use sub-tweens
+        if (this.hitTimeline && this.hitTimeline.isPlaying()) {
+            this.hitTimeline.stop();
+        }
+        this.redBottom.alpha = 0;
+        this.hitTimeline = this.scene.tweens.createTimeline()
+            .queue( this.animFadeIn )
+            .queue( this.animFadeOut );
+        this.hitTimeline.play();
+    }
+}
+
+export default BattleUI;

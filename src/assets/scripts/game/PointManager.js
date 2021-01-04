@@ -1,59 +1,67 @@
-function PointManager () {
-    this._reset();
-    this.events = {
-        update: new Phaser.Signal()
-    };
-}
-//------------------------------------------------------------------------------------------------------------------
-PointManager.prototype = {
+class PointManager {
+    constructor (events) {
+        /** @type Phaser.Events.EventEmitter */this.events = events;
+        this._reset();
+    }
+    //------------------------------------------------------------------------------------------------------------------
     _reset () {
         this._point = 0;
         this._lastStage = 0;
         this._multiplier = 1;
         this._isLastStageCleared = false;
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    clearEvents : function () {
-        this.events.update.removeAll();
-    },
+    clearEvents () {
+        this.events.removeAllListeners( 'update' );
+    }
     //------------------------------------------------------------------------------------------------------------------
-    addPoint : function (point) {
+    addPoint (point) {
         this.setPoint( this._point + point * this._multiplier );
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    setPoint : function (point) {
+    setPoint (point) {
         this._point = point;
-        this.events.update.dispatch( this._point );
-    },
+        this.events.emit( 'update_point', this._point );
+    }
     //------------------------------------------------------------------------------------------------------------------
-    setMultiplier : function (multiplier) {
+    setMultiplier (multiplier) {
 //        console.log( 'setMultiplier = ', multiplier );
         this._multiplier = Math.max( multiplier, 1 );
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    getMultiplier : function () {
+    getMultiplier () {
         return this._multiplier;
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    beginStage : function (stage) {
+    beginStage (stage) {
         this._lastStage = stage;
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    endStage : function (isWin) {
+    endStage (isWin) {
         this._isLastStageCleared = isWin;
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    getTotalPoint : function () {
+    getTotalPoint () {
         return this._point;
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    getLastStage : function () {
+    getLastStage () {
         return this._lastStage;
-    },
+    }
     //------------------------------------------------------------------------------------------------------------------
-    isLastStageCleared : function () {
+    isLastStageCleared () {
         return this._isLastStageCleared;
     }
-};
-//----------------------------------------------------------------------------------------------------------------------
-PointManager.Singleton = new PointManager();
+
+    static Singleton (events) {
+        if (PointManager._instance == null) {
+            PointManager._instance = new PointManager(events);
+        }
+        if (events) PointManager._instance.events = events;
+        return PointManager._instance;
+    }
+}
+
+PointManager._instance = null;
+
+export default PointManager;

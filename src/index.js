@@ -1,9 +1,6 @@
 import Phaser from 'phaser';
 import Boot from './assets/scenes/Boot';
 
-// add global variable for using in console: game.state.getCurrentState()
-/** @type Phaser.Game */var game;
-
 //-----------------------------------------------------------------------------------------------------------
 /**
  * Game config (properties are defined by Phaser)
@@ -37,15 +34,7 @@ import Boot from './assets/scenes/Boot';
  * Entry point: Game starts here
  */
 window.onload = function() {
-    let game = new Phaser.Game( pConfig );
-
-    // user-defined data
-    game.data = {
-        bgm         : '',
-        userLevel   : 1
-    };
-
-    window.game = game;
+    window.game = new Phaser.Game( pConfig );
 };
 
 // COMPLETELY DISABLE LOG

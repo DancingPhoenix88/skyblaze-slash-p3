@@ -1,40 +1,39 @@
-function BattleTimer () {
-    this.timeCountDown = 0;
-    
-    this.events = {
-        timeUpdate: new Phaser.Signal(),
-        timeOut: new Phaser.Signal()
-    };
-}
-//-----------------------------------------------------------------------------------------------------------
-BattleTimer.prototype = {
-    start : function () {
+import { GameEvents } from "./GameEvents";
+
+class BattleTimer {
+    constructor (time, events) {
+        /** @type Phaser.Time.Clock */this.time = time;
+        /** @type Phaser.Events.EventEmitter */this.events = events;
+        this.timeCountDown = 0;
+    }
+    //-------------------------------------------------------------------------------------------------------
+    start () {
         // Get data
-        this.timeCountDown = game.data.level.duration;
+        this.timeCountDown = game.registry.get('level').duration;
         
         // Set up loop
-        /** @type Phaser.Timer */var timer = game.time.create( false );
-        timer.repeat(
-            1 * Phaser.Timer.SECOND,
-            this.timeCountDown,
-            this._onUpdateTimer,
-            this
-        );
-        timer.start();
+        this.time.addEvent({
+            delay        : 1000,
+            callback     : this._onUpdateTimer,
+            callbackScope: this,
+            repeat       : this.timeCountDown
+        });
         
         // Draw first view
         this.timeCountDown++;
         this._onUpdateTimer();
-    },
+    }
     //-------------------------------------------------------------------------------------------------------
-    _onUpdateTimer : function () {
+    _onUpdateTimer () {
         --this.timeCountDown;
         
-//        console.log( 'TIME: ', this.timeCountDown );
-        this.events.timeUpdate.dispatch( this.timeCountDown );
+    //    console.log( 'TIME: ', this.timeCountDown );
+        this.events.emit( GameEvents.UPDATE_TIME, this.timeCountDown );
         
         if (this.timeCountDown <= 0) {
-            this.events.timeOut.dispatch();
+            this.events.emit( GameEvents.TIME_OUT );
         }
     }
-};
+}
+
+export default BattleTimer;
