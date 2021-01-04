@@ -2,3 +2,8 @@ NOTES:
 + group -> container
 + anchor -> origin
 + extended class needs to call preUpdate/update manually <------FUCK
++ game.data -> registry
++ sprite.data -> dataEnabled + set/get
++ z -> depth
++ scale -> scaleX, scaleY
++ position REMOVED

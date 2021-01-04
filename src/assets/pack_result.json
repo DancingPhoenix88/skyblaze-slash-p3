@@ -1,0 +1,41 @@
+{
+  "result":{
+    "files": [
+      {
+        "type": "image",
+        "key": "blue_star",
+        "url": "src/assets/sprites/result/blue_star.png"
+      },
+      {
+        "type": "image",
+        "key": "label_complete",
+        "url": "src/assets/sprites/result/label_complete.png"
+      },
+      {
+        "type": "image",
+        "key": "label_win",
+        "url": "src/assets/sprites/result/label_win.png"
+      },
+      {
+        "type": "image",
+        "key": "light_beam",
+        "url": "src/assets/sprites/result/light_beam.png"
+      },
+      {
+        "type": "image",
+        "key": "panel_complete",
+        "url": "src/assets/sprites/result/panel_complete.png"
+      },
+      {
+        "type": "image",
+        "key": "panel_win",
+        "url": "src/assets/sprites/result/panel_win.png"
+      },
+      {
+        "type": "image",
+        "key": "yellow_star",
+        "url": "src/assets/sprites/result/yellow_star.png"
+      }
+    ]
+  }
+}

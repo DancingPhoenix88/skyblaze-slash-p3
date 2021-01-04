@@ -25,6 +25,7 @@ class Home extends Phaser.Scene {
     toBattleState () {
         this.game.registry.set( 'user_level', 1 );
         this.scene.transition( { target:'Battle', duration:500 } );
+
     }
 }
 

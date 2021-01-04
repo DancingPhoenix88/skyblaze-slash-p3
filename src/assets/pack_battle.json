@@ -1,0 +1,40 @@
+{
+  "battle": {
+    "files": [
+      {
+        "type": "atlas",
+        "key": "actors",
+        "textureURL": "src/assets/atlas/actors.png",
+        "atlasURL": "src/assets/atlas/actors.json"
+      },
+      {
+        "type": "atlas",
+        "key": "battle_ui",
+        "textureURL": "src/assets/atlas/battle_ui.png",
+        "atlasURL": "src/assets/atlas/battle_ui.json"
+      },
+      {
+        "type": "atlas",
+        "key": "anim_slash_power",
+        "textureURL": "src/assets/atlas/anim_slash_power.png",
+        "atlasURL": "src/assets/atlas/anim_slash_power.json"
+      },
+      {
+        "type": "spritesheet",
+        "key": "anim_item_vfx",
+        "url": "src/assets/spritesheets/anim_item_vfx.png",
+        "frameConfig": {
+          "frameWidth": 342,
+          "frameHeight": 342,
+          "margin": 1,
+          "spacing": 2
+        }
+      },
+      {
+        "type": "json",
+        "key": "stage",
+        "url": "src/assets/data/stage.json"
+      }
+    ]
+  }
+}
